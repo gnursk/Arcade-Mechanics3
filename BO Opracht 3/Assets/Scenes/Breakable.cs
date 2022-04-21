@@ -10,7 +10,7 @@ public class Breakable : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (_broken) return;
-        if (collision.relativeVelocity.magnitude >= _breakForce)
+        if (collision.gameObject.tag == "Breaker")
         {
             _broken = true;
             var replacement = Instantiate(_replacement, transform.position, transform.rotation);
